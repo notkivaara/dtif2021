@@ -38,7 +38,7 @@ public class RiwayatTransaksi extends javax.swing.JFrame {
 
         try {
             Statement st = (Statement) Config.configDB().createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM transaksi");
+            ResultSet rs = st.executeQuery("SELECT transaksi.kd_transaksi, transaksi.tanggal, profil.nama, transaksi.harga_total FROM transaksi JOIN profil ON transaksi.kd_profil = profil.kd_profil");
 
             while (rs.next()) {
                 tblTransaksi.addRow(new Object[] {
@@ -67,8 +67,9 @@ public class RiwayatTransaksi extends javax.swing.JFrame {
 
         try {
             Statement st = (Statement) Config.configDB().createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM `detail_transaksi` JOIN transaksi ON detail_transaksi" +
-                    ".kd_transaksi = transaksi.kd_transaksi WHERE transaksi.kd_transaksi = '"+ kdTransaksi +"';");
+            ResultSet rs = st.executeQuery("SELECT transaksi.kd_transaksi, detail_transaksi.nama_barang, detail_transaksi.harga_satuan, detail_transaksi.kuantitas, detail_transaksi.harga_total, profil.nama  FROM `detail_transaksi` JOIN transaksi ON detail_transaksi" +
+                    ".kd_transaksi = transaksi.kd_transaksi " +
+                    "JOIN profil ON transaksi.kd_profil = profil.kd_profil WHERE transaksi.kd_transaksi = '"+ kdTransaksi +"';");
 
             while (rs.next()) {
                 tblDetail.addRow(new Object[] {
@@ -436,7 +437,7 @@ public class RiwayatTransaksi extends javax.swing.JFrame {
         tblTransaksi.addColumn("Nama Karyawan");
         tblTransaksi.addColumn("Harga");
         try {
-            String sql = "SELECT * FROM `transaksi` WHERE kd_transaksi = '"+search +"';";
+            String sql = "SELECT transaksi.kd_transaksi, transaksi.tanggal, profil.nama, transaksi.harga_total FROM transaksi JOIN profil ON transaksi.kd_profil = profil.kd_profil WHERE kd_transaksi = '"+search +"';";
             Connection conn = (Connection) Config.configDB();
             PreparedStatement pst = conn.prepareStatement(sql);
             ResultSet rs = pst.executeQuery(sql);
