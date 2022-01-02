@@ -946,6 +946,7 @@ btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
         DefaultTableModel model = (DefaultTableModel) transactionTable.getModel();
         int row = transactionTable.getRowCount();
         model.setRowCount(0);
+        totalField.setText("");
     }//GEN-LAST:event_btnClearMouseClicked
 
     private void btnHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHistoryMouseClicked
