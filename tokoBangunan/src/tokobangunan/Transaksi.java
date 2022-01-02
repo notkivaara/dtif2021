@@ -932,8 +932,8 @@ btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
         int row = transactionTable.getSelectedRow();
         model.removeRow(row);
         totalBiaya();
-        payField.setText("0");
-        changeField.setText("0");
+        payField.setText("");
+        changeField.setText("");
         
 
     }//GEN-LAST:event_btnDeleteMouseClicked
@@ -947,6 +947,8 @@ btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
         int row = transactionTable.getRowCount();
         model.setRowCount(0);
         totalField.setText("");
+        payField.setText("");
+        changeField.setText("");
     }//GEN-LAST:event_btnClearMouseClicked
 
     private void btnHistoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnHistoryMouseClicked
