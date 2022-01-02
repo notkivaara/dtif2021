@@ -5,21 +5,13 @@
 package tokobangunan;
 
 import java.awt.Color;
-import java.io.File;
 import java.io.InputStream;
 import java.sql.*;
 import java.util.HashMap;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-
-import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
-import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.design.JasperDesign;
-import net.sf.jasperreports.engine.util.JRLoader;
-import net.sf.jasperreports.engine.xml.JRXmlLoader;
 import net.sf.jasperreports.view.JasperViewer;
 import tokobangunan.Components.RoundJTextField;
 

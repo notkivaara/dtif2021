@@ -5,10 +5,15 @@
 	<property name="ireport.y" value="0"/>
 	<parameter name="kode" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT detail_transaksi.kd_barang, detail_transaksi.nama_barang, detail_transaksi.kuantitas, detail_transaksi.harga_satuan, detail_transaksi.harga_total, transaksi.kd_transaksi, transaksi.nama, transaksi.tanggal, transaksi.tunai, transaksi.kembali,
+		<![CDATA[SELECT detail_transaksi.kd_barang, detail_transaksi.nama_barang, detail_transaksi.kuantitas, detail_transaksi.harga_satuan, detail_transaksi.harga_total, transaksi.kd_transaksi, profil.nama, transaksi.tanggal, transaksi.tunai, transaksi.kembali,
 transaksi.harga_total AS grand_total 
 
-FROM detail_transaksi JOIN transaksi ON detail_transaksi.kd_transaksi = transaksi.kd_transaksi WHERE transaksi.kd_transaksi = $P{kode};]]>
+FROM detail_transaksi 
+
+JOIN transaksi ON detail_transaksi.kd_transaksi = transaksi.kd_transaksi
+JOIN profil ON profil.kd_profil = transaksi.kd_profil 
+
+WHERE transaksi.kd_transaksi = $P{kode};]]>
 	</queryString>
 	<field name="kd_barang" class="java.lang.String"/>
 	<field name="nama_barang" class="java.lang.String"/>
@@ -17,7 +22,7 @@ FROM detail_transaksi JOIN transaksi ON detail_transaksi.kd_transaksi = transaks
 	<field name="harga_total" class="java.lang.Integer"/>
 	<field name="kd_transaksi" class="java.lang.String"/>
 	<field name="nama" class="java.lang.String"/>
-	<field name="tanggal" class="java.sql.Date"/>
+	<field name="tanggal" class="java.sql.Timestamp"/>
 	<field name="tunai" class="java.lang.Integer"/>
 	<field name="kembali" class="java.lang.Integer"/>
 	<field name="grand_total" class="java.lang.Integer"/>

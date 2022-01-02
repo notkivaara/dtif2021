@@ -5,7 +5,6 @@
 package tokobangunan;
 
 import java.awt.Color;
-import static java.lang.System.err;
 
 import java.sql.*;
 import javax.swing.JOptionPane;

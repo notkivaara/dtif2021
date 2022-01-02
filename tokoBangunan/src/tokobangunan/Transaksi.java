@@ -11,15 +11,12 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 import javax.swing.*;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 
-import jdk.nashorn.internal.scripts.JO;
 import tokobangunan.Components.RoundJTextField;
 import tokobangunan.Components.RoundedPanel;
 /**
@@ -741,12 +738,11 @@ btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
                 Connection c = (Connection) Config.configDB();
 
                 String sql = "INSERT INTO `transaksi`"
-                        + "(`kd_transaksi`, `tanggal`, `kd_profil`, `nama`, "
+                        + "(`kd_transaksi`, `tanggal`, `kd_profil`, "
                         + "`harga_total`, " +
                         "`tunai`, `kembali`) " +
                         "VALUES ('"+ idTransaksi +"','"+ waktu +"','"
-                        + kodeProfileKaryawan +"','"
-                        + namaKar +"','"+ grandTotal +"','"+ tunai +"'," +
+                        + kodeProfileKaryawan +"','"+ grandTotal +"','"+ tunai +"'," +
                         "'"+ kembalian +"')";
                 PreparedStatement p = c.prepareStatement(sql);
                 p.executeUpdate();
